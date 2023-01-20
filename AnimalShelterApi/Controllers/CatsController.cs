@@ -53,13 +53,16 @@ namespace AnimalShelterApi.Controllers
       return cat;
     }
 
+
     [HttpPost]
-    public async Task<ActionResult<Dog>> Post(Dog dog)
+    public async Task<ActionResult<Cat>> Post(Cat cat)
     {
-      _db.Dogs.Add(dog);
+      _db.Cats.Add(cat);
       await _db.SaveChangesAsync();
-      return CreatedAtAction(nameof(GetDog), new { id = dog.DogId }, dog);
+      return CreatedAtAction(nameof(GetCat), new { id = cat.CatId }, cat);
     }
+
+    
 
     
   }
