@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CretaceousApi.Models;
+using AnimalShelterApi.Models;
 
-namespace CretaceousApi.Controllers
+namespace AnimalShelterApi.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
@@ -10,7 +10,7 @@ namespace CretaceousApi.Controllers
   {
     private readonly AnimalShelterApiContext _db;
 
-    public AnimalsController(AnimalShelterApiContext db)
+    public DogsController(AnimalShelterApiContext db)
     {
       _db = db;
     }
