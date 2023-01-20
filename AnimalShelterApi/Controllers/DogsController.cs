@@ -65,7 +65,7 @@ namespace AnimalShelterApi.Controllers
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Dog dog)
     {
-      if (id != dog.DogId)dog
+      if (id != dog.DogId)
       {
         return BadRequest();
       }
