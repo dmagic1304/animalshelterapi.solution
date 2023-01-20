@@ -44,7 +44,7 @@ namespace AnimalShelterApi.Controllers
     public async Task<ActionResult<Cat>> GetCat(int id)
     {
       Cat cat = await _db.Cats.FindAsync(id);
-animal
+      
       if (cat == null)
       {
         return NotFound();
@@ -94,9 +94,7 @@ animal
     private bool CatExists(int id)
     {
       return _db.Cats.Any(e => e.CatId == id);
-    }
-
-    
+    }  
 
     
   }

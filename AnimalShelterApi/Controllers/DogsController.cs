@@ -65,7 +65,7 @@ namespace AnimalShelterApi.Controllers
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Dog dog)
     {
-      if (id != dog.DogId)
+      if (id != dog.DogId)dog
       {
         return BadRequest();
       }
@@ -94,6 +94,21 @@ namespace AnimalShelterApi.Controllers
     private bool DogExists(int id)
     {
       return _db.Dogs.Any(e => e.DogId == id);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteDog(int id)
+    {
+      Dog dog = await _db.Dogs.FindAsync(id);
+      if (dog == null)
+      {
+        return NotFound();
+      }
+
+      _db.Dogs.Remove(dog);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
     }
 
 
