@@ -100,9 +100,17 @@ namespace AnimalShelterApi.Controllers
     public async Task<IActionResult> Cat(int id)
     {
       Cat cat = await _db.Cats.FindAsync(id);
-      
-    }
 
+       if (cat == null)
+      {
+        return NotFound();
+      }
+
+      _db.Cats.Remove(cat);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
+    }
     
   }
 }
