@@ -110,8 +110,6 @@ namespace AnimalShelterApi.Controllers
 
       return NoContent();
     }
-
-
     
   }
 }
