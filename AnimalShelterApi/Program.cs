@@ -9,7 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c => 
 {
   c.SwaggerDoc("v1", new OpenApiInfo { Title = "AnimalShelter", Version = "v1"});
-  //c.ResolveConflictingActions(c=>c.First());
+  c.ResolveConflictingActions(c=>c.First());
 });
 
 builder.Services.AddDbContext<AnimalShelterApiContext>(
@@ -27,9 +27,6 @@ builder.Services.AddApiVersioning(opt =>
                                         opt.AssumeDefaultVersionWhenUnspecified = true;
                                         opt.ReportApiVersions = true;
                                         opt.UseApiBehavior = true;
-                                        // opt.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader(),
-                                        //                                                 new HeaderApiVersionReader("x-api-version"),
-                                        //                                                 new MediaTypeApiVersionReader("x-api-version"));
                                     });
 
 builder.Services.AddVersionedApiExplorer(setup =>
@@ -38,7 +35,6 @@ builder.Services.AddVersionedApiExplorer(setup =>
     setup.SubstituteApiVersionInUrl = true;
 });
 
-// builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 
 var app = builder.Build();
 
