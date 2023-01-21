@@ -1,5 +1,8 @@
-public class ConfigureSwaggerOptions
-    : IConfigureNamedOptions<SwaggerGenOptions>
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+
+namespace AnimalShelterApi.Models;
+public class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
 {
     private readonly IApiVersionDescriptionProvider _provider;
 
