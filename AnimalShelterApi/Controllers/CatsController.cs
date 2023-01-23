@@ -7,6 +7,7 @@ namespace AnimalShelterApi.Controllers
   [Route("api/v{version:apiVersion}/[controller]")]
   [ApiController]
   [ApiVersion("1.0")]
+  [ApiVersion("2.0")]
   public class CatsController : ControllerBase
   {
     private readonly AnimalShelterApiContext _db;
